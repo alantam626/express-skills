@@ -17,16 +17,6 @@ app.use('/skills', skillsRouter)
 
 // Mount routes
 
-app.get('/', function(req, res) {
-  res.render('');
-});
-
-app.get('/skills', function(req, res) {
-  res.render('skills/index', {
-    skills: skillDb.getAll()
-  });
-});
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -37,6 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// mounted routes
 app.use('/', indexRouter);
 app.use('/skills', skillsRouter);
 
