@@ -11,20 +11,19 @@ var skillsRouter = require('./routes/skills');
 const skillDb = require('./data/skills-db')
 // Create the express app (app.set)
 var app = express();
+
 // Mount the middleware (app.use)
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 
-app.use('/skills', skillsRouter)
 
-// Mount routes
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // mounted routes
