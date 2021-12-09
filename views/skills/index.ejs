@@ -9,8 +9,10 @@
       <li>
         <a href="/skills/<%= skill.id %>"><%= skill.skill %> </a>
         <div>Level: <%=skill.level %></div>
+        <div>Time: <%= time %></div>
         <p></p>
       </li>  
     <% }) %>
+    <a href="/skills/new">Add Skill</a>
   </body>
 </html>

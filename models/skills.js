@@ -6,7 +6,8 @@
  
  module.exports = {
    getAll,
-   getOne
+   getOne,
+   create
  };
  
  function getAll() {
@@ -17,4 +18,10 @@
   // URL params are always strings, need to turn it into a number
   id = parseInt(id);
   return skills.find(skill => skill.id === id);
+ }
+
+ function create(skill) {
+   skill.id = Date.now() % 1000000;
+   skill.done = false;
+   skills.push(skill);
  }
