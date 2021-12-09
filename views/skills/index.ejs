@@ -10,9 +10,13 @@
         <a href="/skills/<%= skill.id %>"><%= skill.skill %> </a>
         <div>Level: <%=skill.level %></div>
         <div>Time: <%= time %></div>
-        <p></p>
+        <a href="/skills/new">Add Skill</a>
+        <form action="/skills/<%= skill.id%>?_method=DELETE"
+          class="delete-form" method="POST">
+          <button type="submit">X</button>
+        </form>
       </li>  
     <% }) %>
-    <a href="/skills/new">Add Skill</a>
+    
   </body>
 </html>

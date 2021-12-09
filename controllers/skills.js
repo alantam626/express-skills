@@ -5,6 +5,7 @@ module.exports = {
      show,
      new: newSkill,
      create,
+     delete: deleteSkill,
 }
 
 function create(req, res) {
@@ -34,4 +35,8 @@ function show(req, res) {
   });
 }
 
+function deleteSkill(req, res) {
+  Skill.deleteOne(req.params.id);
+  res.redirect('/skills');
+}
 
